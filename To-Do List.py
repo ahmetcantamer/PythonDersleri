@@ -1,5 +1,7 @@
-# To-Do list, yapılacak görevleri ekleyebildiğimiz, silebildiğimiz ta da güncelleyebildiğimiz bir
+# To-Do list, yapılacak görevleri ekleyebildiğimiz, silebildiğimiz ya da güncelleyebildiğimiz bir
 # yapılacaklar listesidir
+
+import time
 
 task = []
 print("Kaç tane yapılacak görev eklemek istiyorsunuz: ", end = "")
@@ -14,28 +16,56 @@ for j in range(len(task)):
     print("{}-) {}".format(j+1, task[j]))
 
 
-print("Görev eklemek için 1")
-print("Görev silmek için 2")
-print("Görevi güncellemek için 3' e tıklayınız")
-choose = input("Seçiminiz tuşlayınız: ")
-
-if choose == "1":
+def gorev_ekleme():
     print("Kaç tane yapılacak görev eklemek istiyorsunuz: ", end="")
     num2 = input()
 
     for k in range(int(num2)):
         print("Eklenecek {}. görevi giriniz: ".format(k + 1), end="")
         task.append(input())
-elif choose == "2":
+def gorev_silme():
+    delete = input("Silmek istediğiniz görev numarasını giriniz: ")
+    if int(delete) == len(task):
+        task.pop(int(delete) - 1)
+    else:
+        print("Hatalı tuşlama yaptınız....")
+def cikis_yapma():
+    print("Çıkış yapılıyor....")
+    time.sleep(2)
+def gorev_goruntuleme():
     print("Görevler; ")
     for x in range(len(task)):
         print("{}-) {}".format(x + 1, task[x]))
-
-    delete = input("Silmek istediğiniz görev numarasını giriniz: ")
-    task.pop(int(delete)-1)
-else:
-    for x in range(len(task)):
-        print("{}-) {}".format(x + 1, task[x]))
+def gorev_guncelleme():
     update = input("Kaç numaralı görevi güncellemek istiyorsunuz: ")
-    task[int(update)-1] = input("Yeni görevi girebilirsinniz: ")
-#Daha bitmedi fonksiyon biçimine çevrilcek ve eksikler veya eklencekler olabilir
+    if int(update) == len(task):
+        task[int(update) - 1] = input("Yeni görevi girebilirsinniz: ")
+    else:
+        print("Hatalı tuşlama yaptınız....")
+
+
+while True:
+
+    print("Görev eklemek için 1")
+    print("Görev silmek için 2")
+    print("Görevi güncellemek için 3")
+    print("Görevlerinizi görüntülemek için 4")
+    print("Çıkış yapmak için 'Q' tıklayınız")
+    choose = input("Seçiminiz tuşlayınız: ")
+
+
+    if choose == "1":
+        gorev_ekleme()
+
+    elif choose == "2":
+        gorev_silme()
+
+    elif choose == "q":
+        cikis_yapma()
+        break
+    elif choose == "3":
+        gorev_guncelleme()
+    elif choose == "4":
+        gorev_goruntuleme()
+    else:
+        print("Hatalı giriş yaptınız lütfen tekrar deneyiniz...")
