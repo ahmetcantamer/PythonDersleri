@@ -2,15 +2,31 @@
 
 import random
 
-sifre = ""
-print("Oluşturmak istediğiniz parolanızın uzunluğunu giriniz: ", end ="")
-pass_len = input()
+def password_generator():
+        sifre = ""
+        while True:
+                print("Oluşturmak istediğiniz parolanızın uzunluğunu giriniz: ", end="")
+                try:
+                        pass_len = int(input())
+                        break
+                except:
+                        print("Lütfen sayı formatında bir değer giriniz...")
 
-words = ["qwertyuıopğüasdfghjklşizxcvbnmöç", "QWERTYUIOPĞÜASDFGHJKLŞİZXCVBNMÖÇ", "0123456789", ".,!'^+%&/()=?_£#${[]}\|*-"]
+        if pass_len >= 12:
+                statment = "Şifre uzunluğu iyi"
+        elif 7 <= pass_len < 12:
+                statment = "Orta güvenlikte şifre uzunluğu"
+        else:
+                statment = "Güvensiz şifre uzunluğu"
 
-for i in range(int(pass_len)):
 
-        sifre += random.choice(words[i%4])
+        words = ["qwertyuıopğüasdfghjklşizxcvbnmöç", "QWERTYUIOPĞÜASDFGHJKLŞİZXCVBNMÖÇ", "0123456789", ".,!'^+%&/()=?_£#${[]}\|*-"]
 
+        for i in range(pass_len):
 
-print(sifre)
+                sifre += random.choice(words[i%4])
+
+        return statment, sifre
+
+statment, sifre = password_generator()
+print("Şifreniz: {} ve {}".format(sifre, statment))
