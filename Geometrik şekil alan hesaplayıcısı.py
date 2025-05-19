@@ -1,6 +1,7 @@
 import time
 import math
 
+#Geometrik şekillerin alanlarının hesaplandığı kısım
 def kare(a):
     return a*a
 
@@ -37,86 +38,137 @@ def dikdortgenlerPrizmasi(a,b,c):
 def karePrizma(a,b):
     return 4*a*b + 2*a*a
 
-print("Aşağıdaki seçeneklerden alanını hesaplamak istediğiniz geometrik şekli tuşlayınız....")
-time.sleep(2)
-print("""
-        1-) Kare,
-        2-) Dikdörtgen,
-        3-) Üçgen,
-        4-) Yamuk,
-        5-) Paralelkenar,
-        6-) Küp,
-        7-) Eşkenar Üçgen Prizma,
-        8-) Dik Üçgen Prizma,
-        9-) Silindir,
-        10-) Eşkenar Dörtgen,
-        11-) Dikdörtgenler Prizması,
-        12-) Kare Prizma
-"""  )
 
-secim = int(input("Seçiminiz nedir: "))
 
-if secim == 1:
+#Geometrik şekillerin uzunluklarının alındığı ve yazdırıldığı kısım
+def secim1():
     kenr = int(input("Karenin bir kenarının uzunluğunu giriniz: "))
     alan = kare(kenr)
-    print("Karenin alanı = {}".format(alan))
-elif secim == 2:
+    return print("Karenin alanı = {}".format(alan))
+def secim2():
     kkenr = int(input("Dikdörtgenin kısa kenar uzunluğunu giriniz: "))
     ukenr = int(input("Dikdörtgenin uzun kenar uzunluğunu giriniz: "))
     alan = dikdortgen(kkenr, ukenr)
-    print("Dikdörtgenin alanı = {}".format(alan))
-elif secim == 3:
+    return print("Dikdörtgenin alanı = {}".format(alan))
+def secim3():
     tbn = int(input("Üçgenin taban uzunluğunu giriniz: "))
     yuks = int(input("Üçgenin yüksekliğini giriniz: "))
     alan = ucgen(tbn, yuks)
-    print("Üçgenin alanı = {}".format(alan))
-elif secim == 4:
+    return print("Üçgenin alanı = {}".format(alan))
+def secim4():
     atbn = int(input("Yamuğun alt taban uzunluğunu giriniz: "))
     utbn = int(input("Yamuğun üst taban uzunluğunu giriniz: "))
     yuks = int(input("Yamuğun yüksekliğini giriniz: "))
     alan = yamuk(atbn, utbn, yuks)
-    print("Yamuğun alanı = {}".format(alan))
-elif secim == 5:
+    return print("Yamuğun alanı = {}".format(alan))
+def secim5():
     tbn = int(input("Paralelkenarın taban uzunluğunu giriniz: "))
     yuks = int(input("Paralelkenarın yüksekliğini giriniz: "))
     alan = paralelkenar(tbn, yuks)
-    print("Paralelkenarın alanı = {}".format(alan))
-elif secim == 6:
+    return print("Paralelkenarın alanı = {}".format(alan))
+def secim6():
     knr = int(input("Küpün bir kenar uzunluğunu giriniz: "))
     alan = küp(knr)
-    print("Küpün alanı = {}".format(alan))
-elif secim == 7:
+    return print("Küpün alanı = {}".format(alan))
+def secim7():
     tbn = int(input("Eşkenar üçgen prizmanın tabanının bir kenar uzunluğunu giriniz: "))
     yuks = int(input("Eşkenar üçgen prizmanın yüksekliğini giriniz: "))
     alan = eskenarUcgenPrizma(tbn, yuks)
-    print("Eşkenar üçgen prizmanın alanı = {}".format(alan))
-elif secim == 8:
+    return print("Eşkenar üçgen prizmanın alanı = {}".format(alan))
+def secim8():
     knr1 = int(input("Dik üçgen prizmanın, dik üçgen şeklinin, 90° bitişiğindeki 1. kenar uzunluğunu giriniz: "))
     knr2 = int(input("Dik üçgen prizmanın, dik üçgen şeklinin, 90° bitişiğindeki 2. kenar uzunluğunu giriniz: "))
     uknr = int(input("Dik üçgen prizmanın, dik üçgen şeklinin, 90° karşısındaki kenar uzunluğunu giriniz: "))
     yuks = int(input("Dik üçgen prizmanın yüksekliğini giriniz: "))
     alan = dikUcgenPrizma(knr1, knr2, uknr, yuks)
-    print("Dik üçgen prizmanın alanı = {}".format(alan))
-elif secim == 9:
+    return print("Dik üçgen prizmanın alanı = {}".format(alan))
+def secim9():
     ycap = int(input("Silindirin taban yarıçapını giriniz: "))
     yuks = int(input("Silindirin yüksekliğini giriniz: "))
     alan = silindir(ycap, yuks)
-    print("Silindirin alanı = {}".format(alan))
-elif secim == 10:
+    return print("Silindirin alanı = {}".format(alan))
+def secim10():
     ksg1 = int(input("Eşkenar dörtgenin 1. köşegen uzunluğunu giriniz: "))
     ksg2 = int(input("Eşkenar dörtgenin 2. köşegen uzunluğunu giriniz: "))
     alan = eskenarDortgen(ksg1, ksg2)
-    print("Eşkenar dörtgenin alanı = {}".format(alan))
-elif secim == 11:
+    return print("Eşkenar dörtgenin alanı = {}".format(alan))
+def secim11():
     en = int(input("Dikdörtgeneler prizmasının eninin uzunluğunu giriniz: "))
     boy = int(input("Dikdörtgeneler prizmasının boyunun uzunluğunu giriniz: "))
     yuks = int(input("Dikdörtgeneler prizmasının yüksekliğini giriniz: "))
     alan = dikdortgenlerPrizmasi(en, boy, yuks)
-    print("Dikdörtgenler prizmasının alanı = {}".format(alan))
-else:
+    return print("Dikdörtgenler prizmasının alanı = {}".format(alan))
+def secim12():
     knr = int(input("Kare prizmanın, kare şeklinin kenar uzunluğunu giriniz: "))
     yuks = int(input("Kare prizmanın yüksekliğini giriniz: "))
     alan = karePrizma(knr, yuks)
-    print("Kare prizmanın alanı = {}".format(alan))
+    return print("Kare prizmanın alanı = {}".format(alan))
 
-# try-except bloklarına alınacak bazı yerlere geciktirmek için time.sleep() konulabilir, kod denenmedi denenmeli
+
+
+
+print("Aşağıdaki seçeneklerden alanını hesaplamak istediğiniz geometrik şekli tuşlayınız....")
+time.sleep(1)
+print("1-) Kare,")
+time.sleep(0.5)
+print("2-) Dikdörtgen,")
+time.sleep(0.5)
+print("3-) Üçgen,")
+time.sleep(0.5)
+print("4-) Yamuk,")
+time.sleep(0.5)
+print("5-) Paralelkenar,")
+time.sleep(0.5)
+print("6-) Küp,")
+time.sleep(0.5)
+print("7-) Eşkenar Üçgen Prizma,")
+time.sleep(0.5)
+print("8-) Dik Üçgen Prizma,")
+time.sleep(0.5)
+print("9-) Silindir,")
+time.sleep(0.5)
+print("10-) Eşkenar Dörtgen,")
+time.sleep(0.5)
+print("11-) Dikdörtgenler Prizması,")
+time.sleep(0.5)
+print("12-) Kare Prizma")
+time.sleep(0.5)
+
+
+
+while 1:
+    try:
+        secim = int(input("Seçiminiz nedir: "))
+        if secim > 12:
+            print("Lütfen geçerli bir değer giriniz...")
+        else:
+            break
+    except:
+        print("Lütfen geçerli bir değer giriniz....")
+
+
+
+if secim == 1:
+    secim1()
+elif secim == 2:
+    secim2()
+elif secim == 3:
+    secim3()
+elif secim == 4:
+    secim4()
+elif secim == 5:
+    secim5()
+elif secim == 6:
+    secim6()
+elif secim == 7:
+    secim7()
+elif secim == 8:
+    secim8()
+elif secim == 9:
+    secim9()
+elif secim == 10:
+    secim10()
+elif secim == 11:
+    secim11()
+else:
+    secim12()
